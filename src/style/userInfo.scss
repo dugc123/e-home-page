@@ -1,0 +1,36 @@
+.userinfo {
+  font-size: 14px;
+  color: #555;
+  padding-top: .8rem;
+  touch-action: none;
+
+  .userinfo-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #c50206;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    height: 0.9rem;
+    line-height: .9rem;
+  }
+
+  .item {
+    display: flex;
+    height: 1rem;
+    line-height: 1rem;
+
+    padding-left: .18rem;
+    padding-right: .18rem;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+
+    img {
+      width: .8rem;
+      height: .8rem;
+      padding-top: .15rem;
+    }
+  }
+}

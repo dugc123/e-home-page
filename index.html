@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>e_home</title>
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_874118_i8l2f8jj0hf.css">
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ExtpGKvuoOnd9owE6ed40CiIZ3iNp22l"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+    <script>
+      function setRem() {
+        var deviceWidth = document.documentElement.clientWidth;
+        document.documentElement.style.fontSize = deviceWidth / 7.5 + "px";
+      }
+      setRem();
+
+      window.onresize = setRem;
+    </script>
+<script src="./static/date/laydate.js"></script>
+</html>
