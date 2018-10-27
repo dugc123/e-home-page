@@ -4,7 +4,7 @@
         <img src="../assets/timg.jpg" alt="">
         <div class="icon-img">
             <div class="icon-img-row">
-                <router-link :to="{path:'/anytimestudy/8',query:{name:'8'}}">
+                <router-link :to="{path:'/anytimestudy',query:{name:'8'}}">
                     <div><img src="../assets/icon1.png" alt=""></div>
                     <div>政治学习</div>
                 </router-link>

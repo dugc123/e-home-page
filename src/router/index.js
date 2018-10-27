@@ -36,7 +36,7 @@ export default new Router({
         component: () => import("@/view/know")
       }
       , {
-        path: '/newseye/:type',
+        path: '/newseye',
         name: 'newseye',
         meta: {
           title: "信工新闻眼"
@@ -45,7 +45,7 @@ export default new Router({
       }, {
         path: '/newsDetail/:id',
         name: 'newsDetail',
-        component: () => import("@/view/detail"),
+        component: () => import("@/view/detail")
       }, {
         path: '/life',
         name: 'life',
@@ -96,7 +96,7 @@ export default new Router({
         },
         component: () => import("@/view/anytimephoto")
       }, {
-        path: '/oneclick/:type',
+        path: '/oneclick',
         name: 'oneclick',
         meta: {
           title: "党建一点通"
@@ -110,35 +110,35 @@ export default new Router({
         },
         component: () => import("@/view/today")
       }, {
-        path: '/showidentity/:type',
+        path: '/showidentity',
         name: 'showidentity',
         meta: {
           title: "党员亮身份"
         },
         component: () => import("@/view/newsList")
       }, {
-        path: '/anytimestudy/:type',
+        path: '/anytimestudy',
         name: 'anytimestudy',
         meta: {
           title: "随时随地学"
         },
         component: () => import("@/view/newsList")
       }, {
-        path: '/System/:type',
+        path: '/System',
         name: 'System',
         meta: {
           title: "制度建设"
         },
         component: () => import("@/view/newsList")
       }, {
-        path: '/activity/:type',
+        path: '/activity',
         name: 'activity',
         meta: {
           title: "特色活动"
         },
         component: () => import("@/view/newsList")
       }, {
-        path: '/study/:type',
+        path: '/study',
         name: 'study',
         meta: {
           title: "政治学习"
@@ -204,11 +204,5 @@ export default new Router({
         },
         component: () => import("@/view/interaction/interactionDetail")
       },
-  ],
-    scrollBehavior(to, from, savedPosition) {
-      return {
-        x: 0,
-        y: 0
-      }
-    }
+  ]
 })

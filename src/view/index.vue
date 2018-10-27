@@ -21,7 +21,7 @@
     </div>
     <div class="main-menu">
         <div class="menu-row">
-            <router-link :to="{path:'/newseye/0',query:{name:'0'}}">
+            <router-link :to="{path:'/newseye',query:{name:'0'}}">
                     <div><img src="../assets/icon_01.png" alt=""></div>
                     <div class="mennu-btn-title">信工新闻眼</div>
             </router-link>
@@ -35,11 +35,11 @@
             </router-link>
         </div>
         <div class="menu-row">
-            <router-link :to="{path:'/oneclick/3',query:{name:'3'}}">
+            <router-link :to="{path:'/oneclick',query:{name:'3'}}">
                     <div><img src="../assets/icon_04.png" alt=""></div>
                     <div class="mennu-btn-title">党建一点通</div>
             </router-link>
-            <router-link :to="{path:'/showidentity/5',query:{name:'5'}}">
+            <router-link :to="{path:'/showidentity',query:{name:'5'}}">
                     <div><img src="../assets/icon_06.png" alt=""></div>
                     <div class="mennu-btn-title">党员亮身份</div>
             </router-link>
@@ -59,12 +59,12 @@
         </div>
         <div class="menu-right">
             <div class="row">
-                <router-link :to="{path:'/anytimestudy/6',query:{name:'6'}}"></router-link>
+                <router-link :to="{path:'/anytimestudy',query:{name:'6'}}"></router-link>
                 <router-link to="/anytimephoto"></router-link>
             </div>
             <div class="row">
-                <router-link :to="{path:'/System/4',query:{name:'4'}}"></router-link>
-                <router-link :to="{path:'/activity/1',query:{name:'1'}}"></router-link>
+                <router-link :to="{path:'/System',query:{name:'4'}}"></router-link>
+                <router-link :to="{path:'/activity',query:{name:'1'}}"></router-link>
             </div>
         </div>
     </div>
@@ -110,5 +110,5 @@ mounted () {
 </script>
 
 <style scoped lang="scss">
-@import '../style/index.scss'
+@import '../style/index.scss';
 </style>

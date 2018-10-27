@@ -37,7 +37,8 @@ return {
     wrapperHeight: 0,
     page: 1,
     isShow:true,
-    isShowLoading:false
+    isShowLoading:false,
+    lastPage:""
 }
 },
 methods: {
@@ -49,31 +50,22 @@ methods: {
     loadBottom() {
       this.loadMore();
     },
-        getNewsList(){
-        let type = this.$route.query.name
-        this.isShowLoading = true
-        this.$axios.get(`/news/newsList.do?page=1&rows=10&type=${type}`).then(res=>{
-        if (res.code == 1) {
-            this.isShowLoading = false
-            this.newsList = res.rows
-        }
-    }).catch(err=>{
-        this.isShowLoading = false
-    })
-    },
+      
      // 下拉刷新加载
     loadFrist() {
         let type = this.$route.query.name
+        this.isShowLoading = true
       this.$axios.get(`/news/newsList.do?page=${this.page}&rows=10&type=${type}`)
         .then(res => {
             if (res.code == 1 && res.total >= 10) {
                 this.page = 1;
                 this.allLoaded = false; // 可以进行上拉
                 this.newsList = res.rows
+                this.isShowLoading = false
                 this.$refs.loadmore.onTopLoaded();
             }
         }).catch(error => {
-          console.log(error)
+        this.isShowLoading = false
         });
     },
         // 加载更多
@@ -99,10 +91,8 @@ mounted () {
     this.$refs.wrapper.getBoundingClientRect().top;
 },
   created() {
-    this.getNewsList()
     this.loadFrist()
-    
-  },
+  }
 }
 </script>
 

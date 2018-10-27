@@ -22,6 +22,7 @@
 
 <script type="text/ecmascript-6">
 import { Toast } from 'mint-ui';
+import { Indicator } from 'mint-ui';
 export default {
  data() {
     return {
@@ -33,23 +34,37 @@ export default {
     },
     methods: {
         handleLogin(){
+                Indicator.open({
+                    text: '登录中...',
+                    spinnerType: 'snake'
+                    });
                 this.$axios.post("/user/userLogin.do",this.formData).then(res=>{
                 if (res.code == 1) {
+                    Indicator.close();
                     this.$store.commit("CHANGE_userInfo",res.data) 
-                    localStorage.setItem("token",res.token)                                    
-                    this.$router.push("/")
+                    localStorage.setItem("token",res.token) 
+                    if(this.$route.query.redirect){
+                        //     let redirect = decodeURIComponent(this.$route.query.redirect);
+                            let redirect = this.$route.query.redirect;
+                            this.$router.push(redirect);
+                        }else{
+                            this.$router.push('/');
+                        }
                     Toast({
                         message: '登录成功',
                         position: 'middle',
                         duration: 1500
                         });
                 }else{
-                Toast({
-                    message: '用户名或密码不正确',
-                    position: 'middle',
-                    duration: 1500
-                    });
+                    Indicator.close();
+                    Toast({
+                        message: '用户名或密码不正确',
+                        position: 'middle',
+                        duration: 1500
+                        });
             }
+        }).catch(err=>{
+                    Indicator.close();
         })
             
     }

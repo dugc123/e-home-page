@@ -1,5 +1,6 @@
 <template>
  <div class="detail">
+    <div class="loading" v-if="isShowLoading"><img src="../../static/Spinner-1s-90px.svg"></div>
           <mt-header :title="title" fixed>
         <router-link to="#" slot="left">
             <mt-button icon="back" @click="handleIcon"></mt-button>
@@ -16,17 +17,20 @@
 export default {
  data() {
  return {
-     title:"",
-     detailList:{}
+        title:"",
+        detailList:{},
+        isShowLoading:false
  }
  },
 methods: {
     getDetail(){
         const id = this.$route.params.id
         // console.log(id)
+        this.isShowLoading = true
         this.$axios.get(`/news/newsContent.do?newsId=${id}`).then(res=>{
             if (res.code == 1) {
                 this.detailList = res.data
+                this.isShowLoading = false
                 switch(res.data.type){
                     case 0:
                         this.title = '信工新闻眼'
@@ -59,13 +63,14 @@ methods: {
                         break;
                 }
             }
+        }).catch(err=>{
+                this.isShowLoading = false
         })
     },
     handleIcon(){
         this.$router.back()
     }
 },
-
 mounted () {
     this.getDetail()
 }
@@ -82,7 +87,7 @@ mounted () {
     width: 7.1rem;
     font-size: 14px;
     color:#333;
-    line-height:1.6;
+    line-height:1.8;
     img{
         width: 100%;
         margin:.4rem 0 .4rem .1rem;

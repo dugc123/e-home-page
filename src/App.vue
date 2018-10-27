@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view/>
+        <router-view/>
     <com-header v-if="ShowHeader"></com-header>
     <tabs v-if="!isShowTabs"></tabs>
   </div>
@@ -27,7 +27,10 @@ export default {
     },
     ShowHeader(){
        if (this.$route.name == "user" ||this.$route.name=="newsDetail"
-       ||this.$route.name == "know"||this.$route.name == "userinfo"||this.$route.name == "updateInfo") {
+       ||this.$route.name == "know"||this.$route.name == "userinfo"
+       ||this.$route.name == "updateInfo"||this.$route.name == "pay"
+       ||this.$route.name == "integral"||this.$route.name == "ChangePassword"
+       ||this.$route.name == "interaction") {
         return false
       }else{
         return true

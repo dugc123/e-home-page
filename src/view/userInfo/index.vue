@@ -84,8 +84,6 @@ export default {
         this.$axios.get(`/user/userInfo.do`).then(res=>{
             if (res.code == 1) {
                 this.Info = res.data
-                console.log(this.Info)
-                
                 this.$store.commit("CHANGE_userInfo",res.data) 
                 if (this.Info.sex == 1) {
                     this.Info.sex = "男"

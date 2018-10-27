@@ -39,13 +39,15 @@
         }
         var reader = new FileReader();
         reader.readAsDataURL(file);
-        reader.onload = function (e)
-        {
+        reader.onload = function (e){
           // 读取到的图片base64 数据编码 将此编码字符串传给后台即可
           var imgcode = e.target.result;
         
           var nativeCode=imgcode;
+          // console.log(nativeCode)
+          
           imgcode=imgcode.split(",")[1];
+          // console.log(imgcode) 
           let formData=new FormData();
           formData.append("myFile",imgcode);
           axios.post("http://211.67.177.56:8080/hhdj/image/uploadBase64.do",formData,{headers: {'token': localStorage.token}}).then(res=>{
@@ -58,10 +60,6 @@
         }
 
       }
-    },
-    created()
-    {
-    
     }
   }
 </script>

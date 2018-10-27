@@ -1,5 +1,10 @@
 <template>
  <div class="page container">
+    <mt-header title="修改密码" fixed>
+    <router-link to="/user" slot="left" >
+        <mt-button icon="back"></mt-button>
+    </router-link>
+    </mt-header>
      <div class="wrap">
         <div>旧密码：</div>
         <input type="password" v-model="formData.oldPwd">
@@ -21,8 +26,6 @@ return {
         newPwd:"",
         pwd:""
     }
-
-    
 }
 },
 components: {

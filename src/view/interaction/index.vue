@@ -1,5 +1,10 @@
 <template>
  <div class="interaction container">
+        <mt-header title="党员云互动" fixed>
+            <router-link to="/" slot="left" >
+                <mt-button icon="back"></mt-button>
+            </router-link>
+    </mt-header>
     <div class="loading" v-if="isShowLoading"><img src="../../assets/Spinner-1s-90px.svg"></div>
         <mt-loadmore  :top-method="loadTop" :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore" :autoFill="isAutoFill">
         <div  v-for="item in ForumList" :key="item.id">
