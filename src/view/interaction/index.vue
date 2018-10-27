@@ -80,21 +80,12 @@ export default {
     loadBottom() {
       this.loadMore();
     },
-        getForumList(){
-        this.isShowLoading = true
-        this.$axios.get(`/forum/forumList.do?page=1&rows=10&type=0&cates=0`).then(res=>{
-        if (res.code == 1) {
-            this.isShowLoading = false
-            this.ForumList = res.rows
-        }
-    }).catch(err=>{
-        this.isShowLoading = false
-    })
-    },
      // 下拉刷新加载
     loadFrist() {
-      this.$axios.get(`/forum/forumList.do?page=${this.page}&rows=10&type=0&cates=0`)
+        this.isShowLoading = true
+      this.$axios.get(`/forum/forumList.do`,{page:this.page,rows:10,type:0,cates:0})
         .then(res => {
+             this.isShowLoading = false
             if (res.code == 1 && res.total >= 10) {
                 this.page = 1;
                 // this.allLoaded = false; // 可以进行上拉
@@ -102,13 +93,14 @@ export default {
                 this.$refs.loadmore.onTopLoaded();
             }
         }).catch(error => {
+             this.isShowLoading = false
           console.log(error);
         });
     },
         // 加载更多
     loadMore() {
         this.page++;
-        this.$axios.get(`/forum/forumList.do?page=${this.page}&rows=10&type=0&cates=0`)
+        this.$axios.get(`/forum/forumList.do`,{page:this.page,rows:10,type:0,cates:0})
         .then(res => {
             // concat数组的追加
             this.ForumList = this.ForumList.concat(res.rows);
@@ -151,7 +143,7 @@ export default {
         },
 },
 mounted () {
-    this.getForumList()
+    // this.getForumList()
     this.loadFrist()
 }
 };

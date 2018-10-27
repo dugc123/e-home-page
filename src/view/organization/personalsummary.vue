@@ -59,7 +59,7 @@ methods: {
     margin:.2rem;
     position: relative;
     .icon-jia{
-        font-size: 56px;
+        font-size: 54px;
         position: absolute;
         color:#ccc;
         top: 50%;

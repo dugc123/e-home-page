@@ -16,7 +16,7 @@ export default {
  },
  methods:{
      getPhoto(){
-    this.$axios.get(`/news/newsList.do?page=1&rows=10&type=7`).then(res=>{
+    this.$axios.get(`/news/newsList.do`,{page:1,rows:10,type:7}).then(res=>{
         if (res.code == 1) {
             this.PhotoList = res.rows
         }

@@ -73,12 +73,6 @@
     height:45px;
     border: 1px solid #e8e8e8;
     border-radius:6px;
-    .el-icon-plus{
-      position:absolute;
-      top:50%;
-      left:50%;
-      transform: translate(-50%,-50%);
-    }
 
   }
 </style>

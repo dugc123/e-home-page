@@ -95,7 +95,7 @@ methods: {
         }else{
             this.isShowLogin = true
         }
-        this.$axios.get(`/carousel/carouselList.do?type=0`).then(res=>{
+        this.$axios.get(`/carousel/carouselList.do`,{type:0}).then(res=>{
             if (res.code == 1) {
                 this.swiperList = res.rows
             }

@@ -187,9 +187,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../../style/userInfo.scss"
-</style>
-<style lang="scss" scoped>
+@import "../../style/userInfo.scss";
 .header-wrap{
     width:1rem;
     height: 1rem;
@@ -210,10 +208,15 @@ input[type="text"]{
 select{
     border:none;
 }
-
+/deep/ .icon-jia{
+        position: absolute;
+        color:#ccc;
+       left:25%;
+    }
 /deep/ .IMg
     {
       width:45px;
       height:45px;
     }
 </style>
+

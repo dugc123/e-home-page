@@ -30,7 +30,7 @@ return {
 methods: {
     getZhidaoList(){
         this.isShowLoading = true
-        this.$axios.get(`/news/newsList.do?page=1&rows=10&type=2`).then(res=>{
+        this.$axios.get(`/news/newsList.do`,{page:1,rows:10,type:2}).then(res=>{
             if (res.code == 1) {
                 this.zhidaoList = res.rows
                 // console.log(this.zhidaoList)

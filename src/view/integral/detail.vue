@@ -44,19 +44,22 @@ methods: {
         },
         // 下拉刷新加载
         loadFrist() {
-        this.$axios.get(`/integral/integralList.do?page=1&rows=10`).then(res => {
+        this.isShowLoading = true
+        this.$axios.get(`/integral/integralList.do`,{page:1,rows:10}).then(res => {
             this.page = 1;
             this.allLoaded = false; // 可以进行上拉
             this.detailLst = res.rows
+            this.isShowLoading = false
             this.$refs.loadmore.onTopLoaded();
             }).catch(error => {
             console.log(error);
+            this.isShowLoading = false;
         });
     },
         // 加载更多
     loadMore() {
         this.page++;
-        this.$axios.get(`/integral/integralList.do?page=${this.page}&rows=10`)
+        this.$axios.get(`/integral/integralList.do`,{page:this.page,rows:10})
         .then(res => {
             // concat数组的追加
             this.detailLst = this.detailLst.concat(res.rows);
@@ -66,24 +69,12 @@ methods: {
             }
             this.$refs.loadmore.onBottomLoaded();
         })
-    },
-    getDetailList(){
-        this.isShowLoading = true
-        this.$axios.get(`/integral/integralList.do?page=1&rows=10`)
-        .then(res => {
-            if (res.code == 1) {
-                this.detailLst = res.rows
-                this.isShowLoading = false
-            }
-        }).catch(err=>{
-            this.isShowLoading = false;
-        })
     }
 },
 created () {
-    this.getDetailList(),
     this.loadFrist()
-},mounted () {
+},
+mounted () {
     // 父控件要加上高度，否则会出现上拉不动的情况
     this.wrapperHeight =
     document.documentElement.clientHeight -

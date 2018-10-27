@@ -27,7 +27,7 @@ methods: {
         const id = this.$route.params.id
         // console.log(id)
         this.isShowLoading = true
-        this.$axios.get(`/news/newsContent.do?newsId=${id}`).then(res=>{
+        this.$axios.get(`/news/newsContent.do`,{newsId:id}).then(res=>{
             if (res.code == 1) {
                 this.detailList = res.data
                 this.isShowLoading = false

@@ -37,8 +37,7 @@ return {
     wrapperHeight: 0,
     page: 1,
     isShow:true,
-    isShowLoading:false,
-    lastPage:""
+    isShowLoading:false
 }
 },
 methods: {
@@ -55,7 +54,7 @@ methods: {
     loadFrist() {
         let type = this.$route.query.name
         this.isShowLoading = true
-      this.$axios.get(`/news/newsList.do?page=${this.page}&rows=10&type=${type}`)
+      this.$axios.get(`/news/newsList.do`,{page:this.page,rows:10,type:type})
         .then(res => {
             if (res.code == 1 && res.total >= 10) {
                 this.page = 1;
@@ -72,7 +71,7 @@ methods: {
     loadMore() {
         let type = this.$route.query.name 
         this.page++;
-        this.$axios.get(`/news/newsList.do?page=${this.page}&rows=10&type=${type}`)
+        this.$axios.get(`/news/newsList.do`,{page:this.page,rows:10,type:type})
         .then(res => {
             // concat数组的追加
             this.newsList = this.newsList.concat(res.rows);
