@@ -7,6 +7,8 @@ const instance = axios.create({
   baseURL,
   timeout: 30000
 })
+
+//利用axios拦截器把post请求的header内容改成application/x-www-form-urlencoded格式
   instance.interceptors.request.use(function(config){
     if (config.method == "post") {
       config.data = qs.stringify(config.data)

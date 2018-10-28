@@ -30,6 +30,7 @@
       {
         /**转base64进行上传*/
         // 利用fileReader对象获取file
+        // console.log(event)
         let _this=this;
         var file = event.target.files[0];
         var filesize = file.size;

@@ -204,5 +204,11 @@ export default new Router({
         },
         component: () => import("@/view/interaction/interactionDetail")
       },
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    return {
+      x: 0,
+      y: 0
+    }
+  }
 })
